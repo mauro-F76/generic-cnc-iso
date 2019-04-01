@@ -1,0 +1,42 @@
+{
+	"name": "generic-gcode-cnc-iso",
+	"displayName": "Generic G-Code ISO for CNC machinery",
+    "description": "Syntax Highlighting for generic G-Code ISO program for CNC machinery.",
+    "version": "1.0.0",
+	"publisher": "MauroFecarotta",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mauro-F76/generic-cnc-iso.git"
+	}, 
+    "icon": "images/gcode-iso-icon.png",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"license": "LICENSE.md",
+	"contributes": {
+		"languages": [
+			{
+				"id": "genericgcodeiso",
+				"aliases": [
+					"Generic G-Code CNC ISO",
+					"genericgcodeiso"
+				],
+				"extensions": [
+					".iso",
+					".anc"
+				],
+				"configuration": "./genericgcodeiso.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "genericgcodeiso",
+				"scopeName": "source.genericgcodeiso",
+				"path": "./syntaxes/genericgcodeiso.json"
+			}
+		]
+	}
+}

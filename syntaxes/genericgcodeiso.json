@@ -1,0 +1,232 @@
+{
+    "name": "genericgcodeiso",
+    "scopeName": "source.genericgcodeiso",
+    "fileTypes": ["genericgcodeiso", "action", "srv"],
+    "patterns": [
+        {
+        "include": "#comments"
+        },
+        {
+        "include": "#1numeric-constant"
+        },
+        {
+        "include": "#boolean-constant"
+        },
+        {
+        "include": "#operators"
+        },
+        {
+        "include": "#round-brackets"
+        },
+        {
+        "include": "#main-g-code"
+        },
+        {
+        "include": "#generic-g-code"
+        },
+        {
+        "include": "#generic-m-code"
+        },
+        {
+        "include": "#math-functions"
+        },
+        {
+        "include": "#line-numbers"
+        },
+        {
+        "include": "#axis-ref"
+        },
+		{
+        "include": "#z-axis-ref"
+        },
+		{
+        "include": "#tool-speed-feed"
+        },
+        {
+        "include": "#reserved-words"
+        },
+        {
+        "include": "#tool-selection"
+        },
+        {
+            "begin": "(\\[\\.*)",
+            "beginCaptures": {
+                "1": { "name": "variable.parameter.genericgcodeiso" }
+            },
+            "contentName": "variable.parameter.genericgcodeiso",
+            "end": "\\]",
+            "name": "variable.parameter.genericgcodeiso"
+        },
+        {
+			"match": "(?i:(IF|THEN|ELSE|FOR|NEXT|END)\\b)",
+			"name": "entity.name.function"
+		}
+        
+    ],
+    "repository": {
+        "main-g-code": {
+            "patterns": [
+                {
+                    "match": "\\b(G[0-5])\\b",
+                    "name": "variable.parameter.genericgcodeiso"
+                }
+            ]
+		},
+		"generic-g-code": {
+            "patterns": [
+                {
+                    "match": "\\bG[0-9]*\\b",
+                    "name": "storage.type.function.genericgcodeiso"
+                }
+            ]
+		},
+		"generic-m-code": {
+            "patterns": [
+                {
+                    "match": "\\bM[0-9]*\\b",
+                    "name": "keyword.control.genericgcodeiso"
+                }
+            ]
+		},
+		"line-numbers": {
+            "patterns": [
+                {
+                    "match": "^((\\s*)(N[0-9]*))",
+                    "name": "comment.line.number-sign.genericgcodeiso"
+                }
+            ]
+		},
+		"axis-ref": {
+            "patterns": [
+                {
+                    "match": "\\b(X|Y|W|A|C|R)",
+                    "name": "storage.type.function.genericgcodeiso"
+                }
+            ]
+		},
+		"z-axis-ref": {
+            "patterns": [
+                {
+                    "match": "\\bZ(\\+|-)?[0-9]+((\\.)?[0-9]+)",
+                    "name": "invalid.illegal.genericgcodeiso"
+                }
+            ]
+		},
+		"tool-speed-feed": {
+			"patterns": [
+				{
+					"match": "\\b(F|S)",
+					"name": "entity.name.class.genericgcodeiso"
+				}
+			]
+		},
+		"reserved-words": {
+            "patterns": [
+                {
+                    "match": "\\b(TCP|UPR|UOT|DLY)",
+                    "name": "entity.name.function.genericgcodeiso"
+                }
+            ]
+		},
+		"tool-selection": {
+            "patterns": [
+                {
+                    "match": "\\bT[0-9]*\\b",
+                    "name": "invalid.illegal.genericgcodeiso"
+                },
+                {
+                    "match": "\\bh[0-9]*\\b",
+                    "name": "invalid.illegal.genericgcodeiso"
+                }
+            ]
+		},
+        "boolean-constant": {
+            "match": "\\b(TRUE|FALSE)\\b",
+            "name": "storage.type.genericgcodeiso"
+        },
+        "numeric-constant": {
+            "match": "-?((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b",
+            "name": "entity.name.function"
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "match": "!=|<=|>=|==|<|>|=",
+                    "name": "keyword.control.genericgcodeiso"
+                },
+                {
+                    "match": "(?i:\\b(AND|OR|NOT|XOR)\\b)",
+                    "name": "entity.name.function.genericgcodeiso"
+                },
+                {
+                    "match": "&&|!|\\|\\||&|\\^",
+                    "name": "entity.name.function.genericgcodeiso"
+                },
+                {
+                    "match": "%|\\*|/|-|\\+|\\*\\*",
+                    "name": "keyword.control.genericgcodeiso"
+                },
+                {
+                    "match": "DX|DY|DZ|FLD",
+                    "name": "keyword.control.genericgcodeiso"
+                }
+            ]
+        },
+        "math-functions": {
+            "patterns": [
+                {
+                    "match": "\\b(ABS|ACOS|ASIN|ATAN2|ATAN|COS|SIN|TAN|RD|RU|EXP|LN|LOG|SQR|SQRT|SHL|SHR|PI|MOD|>>|<<)\\b",
+                    "name": "keyword.control.genericgcodeiso"
+                }
+            ]
+        },
+        "round-brackets": {
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.control.genericgcodeiso"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.control.genericgcodeiso"
+				}
+			},
+			"name": "entity.name.function",
+			"patterns": [
+				{
+					"include": "source.genericgcodeiso"
+				}
+			]
+		},
+		"comments": {
+            "patterns": [
+                {
+                    "name": "comment.block.genericgcodeiso",
+                    "begin": "\\;\\.*",
+                    "beginCaptures": {
+                        "1": { "name": "comment.block.genericgcodeiso" }
+                    },
+                    "end": "\\n"
+                },
+                {
+                    "name": "comment.block.genericgcodeiso",
+                    "begin": "\\#\\.*",
+                    "beginCaptures": {
+                        "1": { "name": "comment.block.genericgcodeiso" }
+                    },
+                    "end": "\\n"
+                },
+                {
+                    "name": "comment.block.genericgcodeiso",
+                    "begin": "\\{\\.*",
+                    "beginCaptures": {
+                        "1": { "name": "comment.block.genericgcodeiso" }
+                    },
+                    "end": "\\n"
+                }
+            ]
+        }
+    }
+}
