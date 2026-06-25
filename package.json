@@ -2,7 +2,7 @@
 	"name": "generic-gcode-cnc-iso",
 	"displayName": "Generic G-Code ISO for CNC machinery",
     "description": "Syntax Highlighting for generic G-Code ISO program for CNC machinery.",
-    "version": "1.0.0",
+    "version": "1.0.1",
 	"publisher": "mauro-f76",
 	"repository": {
 		"type": "git",

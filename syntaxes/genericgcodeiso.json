@@ -7,7 +7,7 @@
         "include": "#comments"
         },
         {
-        "include": "#1numeric-constant"
+        "include": "#numeric-constant"
         },
         {
         "include": "#boolean-constant"

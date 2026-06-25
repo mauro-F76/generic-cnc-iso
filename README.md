@@ -6,6 +6,10 @@ Syntax Highlighting for generic CNC G-Code ISO file.
 
 ## Release Notes
 
-### 0.1.0
+### 1.0.1
+
+- .nc file extension association.
+
+### 1.0.0
 
 - Initial release.
